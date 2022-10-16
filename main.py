@@ -52,7 +52,7 @@ class Yandexloader:
             headers = self.get_headers()
             photo_params = {'path': '/'+ folder_name + '/' + '_'.join([file_name, photo_date]) + '.jpeg', 'url' : photos['sizes'][-1]['url']}
             resp = requests.post(url, headers=headers,params=photo_params)
-            photo_list.append({'file_name' : '_'.join([file_name, photo_date]) , 'size' : photos['sizes'][-1]['type']})
+            photo_list.append({'file_name' : '_'.join([file_name, photo_date])+ '.jpeg' , 'size' : photos['sizes'][-1]['type']})
             print(photo_list)
             with open('uploads_foto.json', 'w') as file_json:
                 json.dump(photo_list, file_json, indent=2)
